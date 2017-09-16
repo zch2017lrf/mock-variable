@@ -21,9 +21,7 @@ var MV = require('mock-variable'); // ES5 with npm
 
 ## 2. API & Mocker
 
-Before use it to mock fake data, you should get the `mocker` firstly.
- 
-How to get the `mocker`? we have:
+You can assemble the variable structure arbitrarily by **using the mockers** below:
 
  - **MV.bool()**
  - **MV.number(min[, max = min, fixed = 0])**
@@ -34,7 +32,7 @@ How to get the `mocker`? we have:
  - **MV.constant(value)**
  - **MV.apply(Function)**
 
-You can assemble the variable structure arbitrarily. After you got the mocker, then use `mocker.mock()` to get the fake data.
+After you got the mocker, then use `mocker.mock()` to get the fake data.
 
 You can see all the usage in the [test cases file](tests/test.js).
 
@@ -48,13 +46,13 @@ Here is some examples. More you can see in [tests/test.js](tests/test.js) file.
  - Simple usage
 
 ```js
-MV.number(1, 9, 2).mock(); // got random number like 2.93
-MV.string(6).mock(); // got random string like `Qv_teE`
-MV.bool().mock(); // got true / false
-MV.oneOf(['hustcc', 'imcxl']); // got random element from the array
-MV.constant('hello, hustcc.').mock(); // got string `hello, hustcc`
+MV.number(1, 9, 2).mock(); // 4.71
+MV.string(6).mock(); // `Qv_teE`
+MV.bool().mock(); // true / false
+MV.oneOf(['hustcc', 'imcxl']).mock(); // random element from the array
+MV.constant('hello, hustcc.').mock(); // `hello, hustcc`
 MV.constant(null).mock(); // got null
-MV.apply(function() { return Math.random(); } )); // will got number generate by Math.random()
+MV.apply(function() { return Math.random(); } )).mock(); // will got number generate by fucntion Math.random()
 ```
 
  - `arrayOf`
@@ -78,7 +76,7 @@ var mocker = MV.shape({
 mocker.mock(); // got a random value object.
 ```
 
- - Complex usage
+ - complex usage
 
 ```js
 var mocker = MV.arrayOf({
