@@ -10,7 +10,13 @@ var CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_$';
 
 var random = Math.random;
 
-
+/**
+ * random a number.
+ * @param min
+ * @param max
+ * @param fixed
+ * @returns {*}
+ */
 function randomNumber(min, max, fixed) {
   if (fixed === undefined) fixed = 0;
   // include max and min
@@ -23,14 +29,27 @@ function randomNumber(min, max, fixed) {
   return fixedRound(random() * (max - min) + min, fixed);
 }
 
+/**
+ * random boolean.
+ * @returns {boolean}
+ */
 function randomBool() {
   return !!randomNumber(0, 1);
 }
 
+/**
+ * random a char.
+ * @returns {*}
+ */
 function randomChar() {
   return CHARS[randomNumber(0, CHARS.length - 1)];
 }
 
+/**
+ * random a string.
+ * @param len
+ * @returns {string}
+ */
 function randomString(len) {
   if (len < 0) len = 0;
   var arr = [];

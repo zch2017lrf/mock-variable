@@ -7,7 +7,6 @@ var random = require('./random.js');
 var helper = require('./helper.js');
 var Mocker = require('./mocker.js');
 
-
 var randomBool = random.randomBool;
 var randomString = random.randomString;
 var randomNumber = random.randomNumber;
@@ -15,7 +14,9 @@ var mockerValue = helper.mockerValue;
 
 
 /**
- * random String, with length given.
+ * string mocker. random string, with length given.
+ * @param len
+ * @returns {Mocker}
  */
 function string(len) {
   len = len || 8; // the default length is 8.
@@ -25,7 +26,11 @@ function string(len) {
 }
 
 /**
- * random Number, with min, max, fixed given.
+ * number mocker. random Number, with min, max, fixed given.
+ * @param min
+ * @param max
+ * @param fixed
+ * @returns {Mocker}
  */
 function number(min, max, fixed) {
   max = max || min;
@@ -35,14 +40,19 @@ function number(min, max, fixed) {
 }
 
 /**
- * mock boolean
+ * boolean mocker.
+ * @returns {Mocker}
  */
 function bool() {
   return new Mocker(randomBool);
 }
 
 /**
- * arrayOf mocker
+ * arrayOf mocker.
+ * @param mocker
+ * @param min
+ * @param max
+ * @returns {Mocker}
  */
 function arrayOf(mocker, min, max) {
   min = min || 20;
@@ -57,8 +67,15 @@ function arrayOf(mocker, min, max) {
   });
 }
 
+/**
+ * object mocker.
+ * @param mockerObject
+ * @returns {Mocker}
+ */
 function shape(mockerObject) {
-  if (typeof mockerObject !== 'object') throw new Error('The parameter of mocker shape should be object.');
+  if (typeof mockerObject !== 'object')
+    throw new Error('The parameter of mocker shape should be object.');
+
   return new Mocker(function () {
     var r = {};
     var mocker;
@@ -94,10 +111,10 @@ function oneOf(arr) {
   });
 }
 
-
 /**
  * apply the function for random.
  * @param func
+ * @returns {Mocker}
  */
 var apply = function(func) {
   return new Mocker(func);

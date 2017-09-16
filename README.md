@@ -1,13 +1,13 @@
 # mock-variable
 
-> [WIP] Generate fake / mock structured variable in a modern, human-readable way.
+> Generate fake / mock structured variable in a modern, human-readable way.
 >
 > 用一个现代的、可读的的方式来生成用于测试的假数据。
 
 [![Ver](https://img.shields.io/npm/v/mock-variable.svg)](https://www.npmjs.com/package/mock-variable) [![Build Status](https://travis-ci.org/hustcc/mock-variable.svg?branch=master)](https://travis-ci.org/hustcc/mock-variable) [![Coverage Status](https://coveralls.io/repos/github/hustcc/mock-variable/badge.svg?branch=master)](https://coveralls.io/github/hustcc/mock-variable) [![npm download](https://img.shields.io/npm/dm/mock-variable.svg)](https://www.npmjs.com/package/mock-variable)
 
 
-## 1. Install
+## 1. Usage
 
 > **npm i --save mock-variable**
 
@@ -16,6 +16,39 @@ Then import it.
 ```js
 import MV from 'mock-variable'; // ES6
 var MV = require('mock-variable'); // ES5 with npm
+```
+
+Then write your mocker.
+
+```js
+var usersMocker = MV.arrayOf(MV.shape({
+  id: MV.number(10000, 1000000), // id is between 10000 ~ 1000000.
+  name: MV.string(6), // 6 length string.
+  sex: MV.bool(), // true or false.
+  city: 'hz', // constant value.
+  work: MV.oneOf(['QA', 'FED'])
+}), 2); // users list length is 2.
+
+
+usersMocker.mock();
+```
+
+Then will get the mock variable like below:
+
+```js
+[{
+	id: 757852,
+	name: 'mU7RTB',
+	sex: false,
+	city: 'hz',
+	work: 'FED'
+}, {
+	id: 359987,
+	name: 'jWuKxX',
+	sex: true,
+	city: 'hz',
+	work: 'FED'
+}]
 ```
 
 
