@@ -1,0 +1,37 @@
+{
+  "name": "mock-variable",
+  "version": "0.0.2",
+  "description": "Generate fake / mock structured variable.",
+  "main": "src/index.js",
+  "scripts": {
+    "coverage": "nyc npm test && nyc report --reporter=lcov",
+    "test": "mocha tests/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hustcc/mock-variable.git"
+  },
+  "keywords": [
+    "mock",
+    "faker",
+    "mock-variable",
+    "mock-data",
+    "fake-variable"
+  ],
+  "author": "hustcc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hustcc/mock-variable/issues"
+  },
+  "homepage": "https://github.com/hustcc/mock-variable#readme",
+  "devDependencies": {
+    "coveralls": "^2.11.6",
+    "expect": "^1.14.0",
+    "mocha": "^2.4.5",
+    "nyc": "^5.6.0",
+    "variable-type": "^0.1.4"
+  },
+  "dependencies": {
+    "fixed-round": "^1.0.0"
+  }
+}
