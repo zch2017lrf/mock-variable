@@ -2,7 +2,7 @@
 
 > Generate fake / mock structured variable in a modern, human-readable way.
 >
-> 用一个现代的、可读的的方式来生成用于测试的假数据。
+> 用一个现代的、可读的方式来生成用于测试的假数据。
 
 [![Ver](https://img.shields.io/npm/v/mock-variable.svg)](https://www.npmjs.com/package/mock-variable) [![Build Status](https://travis-ci.org/hustcc/mock-variable.svg?branch=master)](https://travis-ci.org/hustcc/mock-variable) [![Coverage Status](https://coveralls.io/repos/github/hustcc/mock-variable/badge.svg?branch=master)](https://coveralls.io/github/hustcc/mock-variable) [![npm download](https://img.shields.io/npm/dm/mock-variable.svg)](https://www.npmjs.com/package/mock-variable)
 
